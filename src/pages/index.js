@@ -1,123 +1,196 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import { useState } from "react";
 
-const inter = Inter({ subsets: ['latin'] })
+// components
+import Card from "../components/Card/Card";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
+
+// svg
+import {
+  Facebook,
+  Linkedin,
+  Twitter,
+  Github,
+  TradeIcon,
+  StakingIcon,
+  DashboardIcon,
+  ExtensionsIcon,
+  LoansIcon,
+} from "../svg";
 
 export default function Home() {
+  const [email, setEmail] = useState("");
+
+  const handleLaunchApp = () => {
+    console.log("launch app");
+  };
+
+  const handleSubmit = () => {
+    console.log("submit");
+  };
+
+  const defaultCardsData = [
+    {
+      id: 1,
+      title: "We Believe in Endless Possibilities ",
+      description:
+        "Access the world’s most popular instruments, ranging from forex pairs to CFDs on stocks, indices, commodities, and cryptocurrencies - all at the palm of your hand.",
+      image: "/img/cardImgs/img1.png",
+    },
+    {
+      id: 2,
+      title: "Great Trading Conditions",
+      description:
+        "Hedging is allowed, without any restrictions on short selling and scalping. We provide fast and reliable order execution, as well as ultra-low spreads.",
+      image: "/img/cardImgs/img2.png",
+    },
+    {
+      id: 3,
+      title: "We Believe You Deserve The Best ",
+      description:
+        "Take advantage of our Expert Advisors, Copy Trading platforms and 24/7 crypto trading. Try our unique risk management tool AvaProtectTM, or utilise the Trading Central automated analysis add-on.",
+      image: "/img/cardImgs/img3.png",
+    },
+  ];
+
+  const aboutProjectsData = [
+    {
+      id: 1,
+      title: "Analitical Tools",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Orci lobortis ut tempor pretium proin congue. Sit etiam dolor in accumsan mauris nibh. Placerat nulla ullamcorper tempus turpis tempus libero tellus. Orci facilisis quisque mollis enim felis. Eget lorem dolor sed.",
+      image: "/img/AboutProjects/img1.png",
+    },
+    {
+      id: 2,
+      title: "Trade",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Orci lobortis ut tempor pretium proin congue. Sit etiam dolor in accumsan mauris nibh. Placerat nulla ullamcorper tempus turpis tempus libero tellus. Orci facilisis quisque mollis enim felis. Eget lorem dolor sed.",
+      image: "/img/AboutProjects/img2.png",
+    },
+    {
+      id: 3,
+      title: "Staking",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Orci lobortis ut tempor pretium proin congue. Sit etiam dolor in accumsan mauris nibh. Placerat nulla ullamcorper tempus turpis tempus libero tellus. Orci facilisis quisque mollis enim felis. Eget lorem dolor sed.",
+      image: "/img/AboutProjects/img3.png",
+    },
+    {
+      id: 4,
+      title: "loans",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Orci lobortis ut tempor pretium proin congue. Sit etiam dolor in accumsan mauris nibh. Placerat nulla ullamcorper tempus turpis tempus libero tellus. Orci facilisis quisque mollis enim felis. Eget lorem dolor sed.",
+      image: "/img/AboutProjects/img4.png",
+    },
+    {
+      id: 4,
+      title: "extensions",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Orci lobortis ut tempor pretium proin congue. Sit etiam dolor in accumsan mauris nibh. Placerat nulla ullamcorper tempus turpis tempus libero tellus. Orci facilisis quisque mollis enim felis. Eget lorem dolor sed.",
+      image: "/img/AboutProjects/img5.png",
+    },
+    {
+      id: 4,
+      title: "referals",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Orci lobortis ut tempor pretium proin congue. Sit etiam dolor in accumsan mauris nibh. Placerat nulla ullamcorper tempus turpis tempus libero tellus. Orci facilisis quisque mollis enim felis. Eget lorem dolor sed.",
+      image: "/img/AboutProjects/img6.png",
+    },
+  ];
+
+  const becomeMemberData = [
+    {
+      id: 1,
+      description:
+        "Creating an account is easy. To get started, simply click on the 'Create Account' button and follow the instruction. We take your privacy and security seriously, so rest assured that your information will be kept safe and confidential.",
+      description2:
+        " Registering for an account allows you to streamline the checkout process and make future purchases faster and easier.",
+      button: "create account",
+      image: "/img/BecomeMember/img.png",
+    },
+  ];
+
+  const dashboardData = [
+    {
+      id: 1,
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Dignissim fames tortor scelerisque amet et elementum morbi velit felis. Augue mauris enim dui auctor ligula vestibulum. Tortor a at interdum a.",
+      button: "Start Trading",
+      bgImg: "/img/trendingPlatform/landing-background.png",
+    },
+  ];
+
+  const projectsData = [
+    {
+      title: "Trade",
+      svg: <TradeIcon />,
+    },
+    {
+      title: "Staking",
+      svg: <StakingIcon />,
+    },
+    {
+      title: "Dashboard",
+      svg: <DashboardIcon />,
+      active: true,
+    },
+    {
+      title: "Extensions",
+      svg: <ExtensionsIcon />,
+    },
+    {
+      title: "Loans",
+      svg: <LoansIcon />,
+    },
+  ];
+
+  const footerData = [
+    {
+      svg: <Facebook />,
+      onClick: () => console.log("facebook"),
+    },
+    {
+      svg: <Linkedin />,
+      onClick: () => console.log("linkedin"),
+    },
+    {
+      svg: <Twitter />,
+      onClick: () => console.log("twitter"),
+    },
+    {
+      svg: <Github />,
+      onClick: () => console.log("github"),
+    },
+  ];
+
   return (
-    <>
-      <Head>
-        <title>Create Next App</title>
-        <meta name="description" content="Generated by create next app" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.js</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-    </>
-  )
+    <div
+      style={{
+        background: "#070B1A",
+        display: "flex",
+        flexDirection: "column",
+        gap: "240px",
+      }}>
+      <Navbar handleLaunchApp={handleLaunchApp} />
+      <Card
+        type={"trading-platform"}
+        data={dashboardData}
+        handleSubmit={handleSubmit}
+        projectsData={projectsData}
+      />
+      <Card type={"default"} data={defaultCardsData} />
+      <Card type={"about"} data={aboutProjectsData} />
+      <Card
+        type={"become-member"}
+        data={becomeMemberData}
+        handleSubmit={handleSubmit}
+      />
+      <Footer
+        data={footerData}
+        email={email}
+        setEmail={setEmail}
+        handleSubmit={handleSubmit}
+      />
+    </div>
+  );
 }
