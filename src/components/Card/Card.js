@@ -102,8 +102,8 @@ const Card = ({ type, data, customStyles, projectsData, link }) => {
   if (type === "trading-platform") {
     element = (
       <div className={styles.platformContainer} style={customStyles}>
-        {data.map((item) => (
-          <div className={styles.platformContent} key={item.id}>
+        {data.map((item, index) => (
+          <div className={styles.platformContent} key={index}>
             <img className={styles.platformBgImg} src={item.bgImg} alt="" />
             <div className={styles.platformInfoContainer}>
               <div className={styles.platformInfo}>
