@@ -49,6 +49,7 @@
     font-size: 14px;
     line-height: 140%;
     transition: 0.3s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    color: #FFF;
 }
 
 .footerForm input:focus {
