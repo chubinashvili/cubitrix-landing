@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-import { useRouter } from "next/router";
-
 // components
 import Card from "../components/Card/Card";
 import Navbar from "../components/Navbar/Navbar";
@@ -22,11 +20,6 @@ import {
 
 export default function Home() {
   const [email, setEmail] = useState("");
-  const router = useRouter();
-
-  const handleLaunchApp = () => {
-    router.push("http://localhost:3000/");
-  };
 
   const handleSubmit = () => {
     setEmail("");
@@ -175,11 +168,11 @@ export default function Home() {
         flexDirection: "column",
         gap: "240px",
       }}>
-      <Navbar handleLaunchApp={handleLaunchApp} />
+      <Navbar link={"http://localhost:3000/"} />
       <Card
         type={"trading-platform"}
         data={dashboardData}
-        handleSubmit={handleLaunchApp}
+        link={"http://localhost:3000/"}
         projectsData={projectsData}
       />
       <Card type={"default"} data={defaultCardsData} />
@@ -187,7 +180,7 @@ export default function Home() {
       <Card
         type={"become-member"}
         data={becomeMemberData}
-        handleSubmit={handleLaunchApp}
+        link={"http://localhost:3000/"}
       />
       <Footer
         data={footerData}

@@ -2,7 +2,7 @@ import { Logo } from "../../svg";
 
 import styles from "./Navbar.module.css";
 
-function Navbar({ handleLaunchApp }) {
+function Navbar({ link }) {
   return (
     <div className={styles.navBarContent}>
       <div className={styles.navBarlogo}>
@@ -12,7 +12,9 @@ function Navbar({ handleLaunchApp }) {
         <span>COMPLAND</span>
       </div>
       <div className={styles.navBarBtn}>
-        <button onClick={handleLaunchApp}>Lounch App</button>
+        <a href={link} target="_blank">
+          Lounch App
+        </a>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import SwiperWrapper from "../SwiperWrapper/SwiperWrapper";
 
 import styles from "./Card.module.css";
 
-const Card = ({ type, data, handleSubmit, customStyles, projectsData }) => {
+const Card = ({ type, data, customStyles, projectsData, link }) => {
   let element = null;
 
   if (type === "default") {
@@ -81,9 +81,9 @@ const Card = ({ type, data, handleSubmit, customStyles, projectsData }) => {
                 />
                 <p className={styles.becomeMemberText}>{item.description}</p>
                 <p className={styles.becomeMemberText}>{item.description2}</p>
-                <button onClick={handleSubmit} className={styles.blueButton}>
+                <a href={link} className={styles.blueButton} target="_blank">
                   {item.button}
-                </button>
+                </a>
               </div>
               <div className={styles.becomeMemberImgWrapper}>
                 <img
@@ -105,17 +105,22 @@ const Card = ({ type, data, handleSubmit, customStyles, projectsData }) => {
         {data.map((item) => (
           <div className={styles.platformContent} key={item.id}>
             <img className={styles.platformBgImg} src={item.bgImg} alt="" />
-            <div className={styles.platformInfo}>
-              <h1 className={styles.platformTitle}>
-                world class
-                <span className={styles.titleSpan}> trading platform.</span> Buy
-                & sell the crypto with
-                <span className={styles.titleSpan}> complend.</span>
-              </h1>
-              <p className={styles.platformText}>{item.description}</p>
-              <button onClick={handleSubmit} className={styles.blueButton}>
+            <div className={styles.platformInfoContainer}>
+              <div className={styles.platformInfo}>
+                <h1 className={styles.platformTitle}>
+                  world class
+                  <span className={styles.titleSpan}>
+                    {" "}
+                    trading platform.
+                  </span>{" "}
+                  Buy & sell the crypto with
+                  <span className={styles.titleSpan}> complend.</span>
+                </h1>
+                <p className={styles.platformText}>{item.description}</p>
+              </div>
+              <a href={link} className={styles.blueButton} target="_blank">
                 {item.button}
-              </button>
+              </a>
             </div>
             <div className={styles.platformWrapper}>
               {projectsData.map((item) => (

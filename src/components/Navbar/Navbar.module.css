@@ -18,7 +18,7 @@
     gap: 20px;
 }
 
-.navBarBtn button {
+.navBarBtn a {
     padding: 14px 37px;
     background-color: #3D5AFE;
     font-size: 16px;
@@ -31,7 +31,7 @@
     border: none;
 }
 
-.navBarBtn button:hover {
+.navBarBtn a:hover {
     background: rgba(61, 90, 254, 0.8);
 }
 
