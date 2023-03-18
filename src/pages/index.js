@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { useRouter } from "next/router";
+
 // components
 import Card from "../components/Card/Card";
 import Navbar from "../components/Navbar/Navbar";
@@ -20,13 +22,15 @@ import {
 
 export default function Home() {
   const [email, setEmail] = useState("");
+  const router = useRouter();
 
   const handleLaunchApp = () => {
-    console.log("launch app");
+    router.push("http://localhost:3000/");
   };
 
   const handleSubmit = () => {
-    console.log("submit");
+    setEmail("");
+    console.log("email sent");
   };
 
   const defaultCardsData = [
@@ -147,19 +151,19 @@ export default function Home() {
   const footerData = [
     {
       svg: <Facebook />,
-      onClick: () => console.log("facebook"),
+      link: "https://www.facebook.com/",
     },
     {
       svg: <Linkedin />,
-      onClick: () => console.log("linkedin"),
+      link: "https://www.linkedin.com/",
     },
     {
       svg: <Twitter />,
-      onClick: () => console.log("twitter"),
+      link: "https://twitter.com/",
     },
     {
       svg: <Github />,
-      onClick: () => console.log("github"),
+      link: "https://github.com/",
     },
   ];
 
@@ -175,7 +179,7 @@ export default function Home() {
       <Card
         type={"trading-platform"}
         data={dashboardData}
-        handleSubmit={handleSubmit}
+        handleSubmit={handleLaunchApp}
         projectsData={projectsData}
       />
       <Card type={"default"} data={defaultCardsData} />
@@ -183,7 +187,7 @@ export default function Home() {
       <Card
         type={"become-member"}
         data={becomeMemberData}
-        handleSubmit={handleSubmit}
+        handleSubmit={handleLaunchApp}
       />
       <Footer
         data={footerData}

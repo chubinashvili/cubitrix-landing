@@ -1,8 +1,23 @@
+import { useState } from "react";
 import { Logo } from "../../svg";
 
 import styles from "./Footer.module.css";
 
 const Footer = ({ handleSubmit, email, setEmail, data }) => {
+  const [error, setError] = useState("");
+  const handleSubscribe = () => {
+    setError("");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailRegex.test(email)) {
+      handleSubmit();
+      setError("");
+    } else {
+      setError("email is invalid");
+      setTimeout(() => {
+        setError("");
+      }, 2000);
+    }
+  };
   return (
     <div className={styles.footerContent}>
       <div className={styles.footerLogo}>
@@ -12,22 +27,35 @@ const Footer = ({ handleSubmit, email, setEmail, data }) => {
         <span>COMPLAND</span>
       </div>
       <div className={styles.footerForm}>
-        <input
-          type="text"
-          name="email"
-          placeholder="Enter email adress"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <button type="submit" onClick={handleSubmit}>
-          Subscribe News
-        </button>
+        <div>
+          <input
+            type="text"
+            name="email"
+            placeholder="Enter email adress"
+            value={email}
+            onChange={(e) => {
+              if (e.target.value.length) {
+                setError("");
+              }
+              setEmail(e.target.value);
+            }}
+          />
+          <button type="submit" onClick={handleSubscribe}>
+            Subscribe News
+          </button>
+        </div>
+        {error && <p className={styles.footerFormError}>{error}</p>}
       </div>
       <div className={styles.footerIcons}>
         {data?.map((item, index) => (
-          <div className={styles.ftIcon} onClick={item.onClick} key={index}>
+          <a
+            className={styles.ftIcon}
+            onClick={item.onClick}
+            key={index}
+            href={item?.link}
+            target="_blank">
             {item.svg}
-          </div>
+          </a>
         ))}
       </div>
     </div>
