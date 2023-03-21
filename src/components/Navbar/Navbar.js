@@ -5,11 +5,13 @@ import styles from "./Navbar.module.css";
 function Navbar({ link }) {
   return (
     <div className={styles.navBarContent}>
-      <div className={styles.navBarlogo}>
-        <div>
-          <Logo />
+      <div className={styles.navbarWrapper}>
+        <div className={styles.navBarlogo}>
+          <div>
+            <Logo />
+          </div>
+          <span>COMPLEND</span>
         </div>
-        <span>COMPLAND</span>
       </div>
       <div className={styles.navBarBtn}>
         <a href={link} target="_blank">

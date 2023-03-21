@@ -18,6 +18,9 @@ import {
   LoansIcon,
 } from "../svg";
 
+// css
+import styles from "../styles/Home.module.css";
+
 export default function Home() {
   const [email, setEmail] = useState("");
 
@@ -56,88 +59,78 @@ export default function Home() {
       title: "Analitical Tools",
       description:
         "Lorem ipsum dolor sit amet consectetur. Orci lobortis ut tempor pretium proin congue. Sit etiam dolor in accumsan mauris nibh. Placerat nulla ullamcorper tempus turpis tempus libero tellus. Orci facilisis quisque mollis enim felis. Eget lorem dolor sed.",
-      image: "/img/AboutProjects/img1.png",
+      image: "/img/AboutProjects/dashboard.jpg",
     },
     {
       id: 2,
       title: "Trade",
       description:
         "Lorem ipsum dolor sit amet consectetur. Orci lobortis ut tempor pretium proin congue. Sit etiam dolor in accumsan mauris nibh. Placerat nulla ullamcorper tempus turpis tempus libero tellus. Orci facilisis quisque mollis enim felis. Eget lorem dolor sed.",
-      image: "/img/AboutProjects/img2.png",
+      image: "/img/AboutProjects/referral.jpg",
     },
     {
       id: 3,
       title: "Staking",
       description:
         "Lorem ipsum dolor sit amet consectetur. Orci lobortis ut tempor pretium proin congue. Sit etiam dolor in accumsan mauris nibh. Placerat nulla ullamcorper tempus turpis tempus libero tellus. Orci facilisis quisque mollis enim felis. Eget lorem dolor sed.",
-      image: "/img/AboutProjects/img3.png",
+      image: "/img/AboutProjects/dashboard.jpg",
     },
     {
       id: 4,
-      title: "loans",
+      title: "Loans",
       description:
         "Lorem ipsum dolor sit amet consectetur. Orci lobortis ut tempor pretium proin congue. Sit etiam dolor in accumsan mauris nibh. Placerat nulla ullamcorper tempus turpis tempus libero tellus. Orci facilisis quisque mollis enim felis. Eget lorem dolor sed.",
-      image: "/img/AboutProjects/img4.png",
+      image: "/img/AboutProjects/referral.jpg",
     },
     {
-      id: 4,
-      title: "extensions",
+      id: 5,
+      title: "Extensions",
       description:
         "Lorem ipsum dolor sit amet consectetur. Orci lobortis ut tempor pretium proin congue. Sit etiam dolor in accumsan mauris nibh. Placerat nulla ullamcorper tempus turpis tempus libero tellus. Orci facilisis quisque mollis enim felis. Eget lorem dolor sed.",
-      image: "/img/AboutProjects/img5.png",
+      image: "/img/AboutProjects/dashboard.jpg",
     },
     {
-      id: 4,
-      title: "referals",
+      id: 6,
+      title: "Referral",
       description:
         "Lorem ipsum dolor sit amet consectetur. Orci lobortis ut tempor pretium proin congue. Sit etiam dolor in accumsan mauris nibh. Placerat nulla ullamcorper tempus turpis tempus libero tellus. Orci facilisis quisque mollis enim felis. Eget lorem dolor sed.",
-      image: "/img/AboutProjects/img6.png",
+      image: "/img/AboutProjects/referral.jpg",
     },
   ];
 
-  const becomeMemberData = [
-    {
-      id: 1,
-      description:
-        "Creating an account is easy. To get started, simply click on the 'Create Account' button and follow the instruction. We take your privacy and security seriously, so rest assured that your information will be kept safe and confidential.",
-      description2:
-        " Registering for an account allows you to streamline the checkout process and make future purchases faster and easier.",
-      button: "create account",
-      image: "/img/BecomeMember/img.png",
-    },
-  ];
+  const becomeMemberData = {
+    id: 1,
+    description:
+      "Creating an account is easy. To get started, simply click on the 'Create Account' button and follow the instruction. We take your privacy and security seriously, so rest assured that your information will be kept safe and confidential.",
+    image: "/img/BecomeMember/complend.jpg",
+    link: "http://localhost:3000/"
+  }
 
-  const dashboardData = [
+  const cardsData = [
     {
-      id: 1,
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Dignissim fames tortor scelerisque amet et elementum morbi velit felis. Augue mauris enim dui auctor ligula vestibulum. Tortor a at interdum a.",
-      button: "Start Trading",
-      bgImg: "/img/trendingPlatform/landing-background.png",
+      title: "Dashboard",
+      svg: <DashboardIcon />,
+      background: "#3B78DE",
     },
-  ];
-
-  const projectsData = [
     {
       title: "Trade",
       svg: <TradeIcon />,
+      background: "#3C17DB",
     },
     {
       title: "Staking",
       svg: <StakingIcon />,
-    },
-    {
-      title: "Dashboard",
-      svg: <DashboardIcon />,
-      active: true,
-    },
-    {
-      title: "Extensions",
-      svg: <ExtensionsIcon />,
+      background: "#FF8C00",
     },
     {
       title: "Loans",
       svg: <LoansIcon />,
+      background: "#00D7BB",
+    },
+    {
+      title: "REFERRAL",
+      svg: <ExtensionsIcon />,
+      background: "#00A5DC",
     },
   ];
 
@@ -161,26 +154,18 @@ export default function Home() {
   ];
 
   return (
-    <div
-      style={{
-        background: "#070B1A",
-        display: "flex",
-        flexDirection: "column",
-        gap: "240px",
-      }}>
+    <div className={styles.main}>
       <Navbar link={"http://localhost:3000/"} />
       <Card
         type={"trading-platform"}
-        data={dashboardData}
         link={"http://localhost:3000/"}
-        projectsData={projectsData}
+        cardsData={cardsData}
       />
       <Card type={"default"} data={defaultCardsData} />
       <Card type={"about"} data={aboutProjectsData} />
       <Card
         type={"become-member"}
         data={becomeMemberData}
-        link={"http://localhost:3000/"}
       />
       <Footer
         data={footerData}

@@ -19,45 +19,48 @@ const Footer = ({ handleSubmit, email, setEmail, data }) => {
     }
   };
   return (
-    <div className={styles.footerContent}>
-      <div className={styles.footerLogo}>
-        <div>
-          <Logo />
+    <div className={styles.footerWrapper}>
+      <div className={styles.footerContent}>
+        <div className={styles.footerLogo}>
+          <div>
+            <Logo />
+          </div>
+          <span>COMPLEND</span>
         </div>
-        <span>COMPLAND</span>
-      </div>
-      <div className={styles.footerForm}>
-        <div>
-          <input
-            type="text"
-            name="email"
-            placeholder="Enter email adress"
-            value={email}
-            onChange={(e) => {
-              if (e.target.value.length) {
-                setError("");
-              }
-              setEmail(e.target.value);
-            }}
-          />
-          <button type="submit" onClick={handleSubscribe}>
-            Subscribe News
-          </button>
+        <div className={styles.footerForm}>
+          <div>
+            <input
+              type="text"
+              name="email"
+              placeholder="Enter email adress"
+              value={email}
+              onChange={(e) => {
+                if (e.target.value.length) {
+                  setError("");
+                }
+                setEmail(e.target.value);
+              }}
+            />
+            <button type="submit" onClick={handleSubscribe}>
+              Subscribe News
+            </button>
+          </div>
+          {error && <p className={styles.footerFormError}>{error}</p>}
         </div>
-        {error && <p className={styles.footerFormError}>{error}</p>}
+        <div className={styles.footerIcons}>
+          {data?.map((item, index) => (
+            <a
+              className={styles.ftIcon}
+              onClick={item.onClick}
+              key={index}
+              href={item?.link}
+              target="_blank">
+              {item.svg}
+            </a>
+          ))}
+        </div>
       </div>
-      <div className={styles.footerIcons}>
-        {data?.map((item, index) => (
-          <a
-            className={styles.ftIcon}
-            onClick={item.onClick}
-            key={index}
-            href={item?.link}
-            target="_blank">
-            {item.svg}
-          </a>
-        ))}
-      </div>
+      <p>© 2023 All rights reserved</p>
     </div>
   );
 };

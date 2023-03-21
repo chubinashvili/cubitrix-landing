@@ -4,12 +4,19 @@
     position: fixed;
     display: flex;
     justify-content: space-between;
-    background: rgba(12, 17, 33);
+    background: #2F3674;
     width: 100vw;
-    height: 100px;
-    padding: 20px 40px;
+    height: 78px;
+    padding: 0 40px;
     align-items: center;
     z-index: 3;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbarWrapper {
+    display: flex;
+    align-items: center;
+    gap: 60px;
 }
 
 .navBarlogo {
@@ -18,21 +25,45 @@
     gap: 20px;
 }
 
+.navbarList {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    gap: 40px;
+}
+
+.navbarList li {
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.navbarList li.active {
+    border-bottom: 1px solid #FFFFFF;
+    color: #FFF;
+    padding: 28.5px 0;
+
+}
+
+.navbarList li:hover {
+    opacity: .7;
+}
+
 .navBarBtn a {
-    padding: 14px 37px;
-    background-color: #3D5AFE;
+    padding: 12px 30px;
     font-size: 16px;
     line-height: 140%;
     font-weight: 500;
     border-radius: 32px;
     color: #FFFFFF;
-    transition: 0.4s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
     cursor: pointer;
     border: none;
+    border: 1px solid #00C6FF;
 }
 
 .navBarBtn a:hover {
-    background: rgba(61, 90, 254, 0.8);
+    opacity: .7;
 }
 
 .navBarlogo span {
@@ -43,7 +74,7 @@
     line-height: 150%;
 }
 
-@media (max-width: 438px) {
+@media (max-width: 500px) {
     .navBarlogo span {
         display: none;
     }
