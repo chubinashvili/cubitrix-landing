@@ -1,14 +1,40 @@
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+@font-face {
+  font-family: "UberMove-Medium";
+  src: url("../fonts/UberMove/UberMove-Medium.eot");
+  src: url("../fonts/UberMove/UberMove-Medium.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/UberMove/UberMove-Medium.svg#Lack-Regular") format("svg"),
+    url("../fonts/UberMove/UberMove-Medium.ttf") format("truetype"),
+    url("../fonts/UberMove/UberMove-Medium.woff") format("woff"),
+    url("../fonts/UberMove/UberMove-Medium.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 
-html,
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "UberMove-Medium";
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  outline-color: none;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  color: #FFF;
+  margin: 0;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: #2d3364;
+  padding: 0 !important;
 }
 
 ::-webkit-scrollbar {
