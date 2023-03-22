@@ -525,12 +525,12 @@
 
 .platformBox:nth-child(1) {
   top: 152px;
-  animation: 10s 1.25s ease-in-out  moveItemOne;
+  animation: 10s 1.25s ease-in-out moveItemOne;
 }
 
 .platformBox:nth-child(2) {
   top: 62px;
-  animation: 10s 1.25s ease-in-out  moveItemTwo;
+  animation: 10s 1.25s ease-in-out moveItemTwo;
 }
 
 .platformBox:nth-child(3) {
@@ -552,7 +552,7 @@
   .platformBox {
     position: unset !important;
     width: 100%;
-    animation: none!important;
+    animation: none !important;
   }
   .platformWrapper {
     justify-content: unset;

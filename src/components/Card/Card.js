@@ -1,17 +1,104 @@
-import React from "react";
-
+import { useEffect } from "react";
 import SwiperWrapper from "../SwiperWrapper/SwiperWrapper";
+import { motion, useAnimation } from "framer-motion";
+
+import { useInView } from "react-intersection-observer";
 
 import styles from "./Card.module.css";
 
+const defaultVariant = {
+  visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+  hidden: { opacity: 0, scale: 0.2 },
+};
+
+const becomeMemberVariantOne = {
+  hidden: {
+    opacity: 0,
+    x: -150,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};
+
+const becomeMemberVariantTwo = {
+  hidden: {
+    opacity: 0,
+    x: 150,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};
+
+const becomeMemberVariantThree = {
+  hidden: {
+    opacity: 0,
+    x: 150,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};
+
+const cardsVariant = {
+  hidden: {
+    opacity: 0,
+    y: -100,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};
+
 const Card = ({ type, data, customStyles, cardsData, link }) => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.3 });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+    if (!inView) {
+      controls.set("hidden");
+    }
+  }, [controls, inView]);
+
   let element = null;
 
   if (type === "default") {
     element = (
-      <div className={styles.cardContent} style={customStyles}>
-        <h2 className={styles.cardHeader}>why complend?</h2>
-        <div className={styles.cardsWrapper}>
+      <div className={`${styles.cardContent}`}>
+        <motion.div
+          ref={ref}
+          variants={cardsVariant}
+          animate={controls}
+          initial='hidden'
+          className={styles.cardHeader}>
+          why complend?
+        </motion.div>
+        <motion.div
+          ref={ref}
+          className={styles.cardsWrapper}
+          variants={defaultVariant}
+          initial='hidden'
+          animate={controls}>
           {data.map((item) => (
             <div
               className={`${styles.card} ${styles[item.className]}`}
@@ -29,21 +116,25 @@ const Card = ({ type, data, customStyles, cardsData, link }) => {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     );
   }
 
   if (type === "about") {
     element = (
-      <div style={customStyles}>
+      <div style={customStyles} ref={ref}>
         <img
           className={styles.bgImg}
           src='/img/AboutProjects/Bottom.svg'
           alt='background cover'
         />
         <div className={styles.aboutContainer}>
-          <div className={styles.aboutWrapper}>
+          <motion.div
+            className={styles.aboutWrapper}
+            variants={becomeMemberVariantThree}
+            initial='hidden'
+            animate={controls}>
             <SwiperWrapper>
               {data.map((item, index) => (
                 <div className={styles.aboutContent} key={index}>
@@ -52,7 +143,7 @@ const Card = ({ type, data, customStyles, cardsData, link }) => {
                       className={styles.aboutImg}
                       src={item.image}
                       alt={"dashboard"}
-                      //"/img/AboutProjects/dashboard.png"
+                      // "/img/AboutProjects/dashboard.png"
                     />
                   </div>
                   <div className={styles.aboutInfo}>
@@ -62,7 +153,7 @@ const Card = ({ type, data, customStyles, cardsData, link }) => {
                 </div>
               ))}
             </SwiperWrapper>
-          </div>
+          </motion.div>
         </div>
       </div>
     );
@@ -70,22 +161,34 @@ const Card = ({ type, data, customStyles, cardsData, link }) => {
 
   if (type === "become-member") {
     element = (
-      <div className={styles.becomeMemberContainer} style={customStyles}>
+      <div
+        className={styles.becomeMemberContainer}
+        style={customStyles}
+        ref={ref}>
         <div className={styles.becomeMemberContent}>
-          <div className={styles.becomeMemberInfo}>
+          <motion.div
+            variants={becomeMemberVariantOne}
+            initial='hidden'
+            animate={controls}
+            className={styles.becomeMemberInfo}>
             <h2 className={styles.becomeMemberHeader}>Become Member</h2>
             <p className={styles.becomeMemberText}>{data.description}</p>
             <a href={data.link} className={styles.blueButton} target='_blank'>
               Create Account
             </a>
-          </div>
-          <div className={styles.becomeMemberImgWrapper}>
+          </motion.div>
+          <motion.div
+            ref={ref}
+            variants={becomeMemberVariantTwo}
+            initial='hidden'
+            animate={controls}
+            className={styles.becomeMemberImgWrapper}>
             <img
               className={styles.becomeMemberImg}
               src={data.image}
               alt={"become member background"}
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     );
