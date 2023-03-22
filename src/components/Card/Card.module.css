@@ -25,7 +25,6 @@
 
 .card {
   background: rgba(127, 147, 255, 0.02);
-  border: 1px solid #95ffc1;
   border-radius: 32px;
   width: calc(33.33% - 30px);
   display: flex;
@@ -39,9 +38,32 @@
   gap: 40px;
 }
 
+
 .card:hover {
-  box-shadow: 0px 20px 60px rgba(4, 231, 98, 0.1);
   transform: translateY(-20px);
+}
+
+.green {
+  border: 1px solid #95FFC1;
+}
+
+.green:hover {
+  box-shadow: 0px 20px 60px rgb(149, 255, 193, 0.1);
+}
+
+.yellow {
+  border: 1px solid #FFDD78;
+}
+
+.yellow:hover {
+  box-shadow: 0px 20px 60px rgb(255, 221, 120, 0.1);
+}
+.blue {
+  border: 1px solid #64D1FF;
+}
+
+.blue:hover {
+  box-shadow: 0px 20px 60px rgb(100, 209, 255, 0.1);
 }
 
 .imgWrapper {

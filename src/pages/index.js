@@ -36,6 +36,7 @@ export default function Home() {
       description:
         "Access the world’s most popular instruments, ranging from forex pairs to CFDs on stocks, indices, commodities, and cryptocurrencies - all at the palm of your hand.",
       image: "/img/cardImgs/img1.png",
+      className: 'green'
     },
     {
       id: 2,
@@ -43,6 +44,7 @@ export default function Home() {
       description:
         "Hedging is allowed, without any restrictions on short selling and scalping. We provide fast and reliable order execution, as well as ultra-low spreads.",
       image: "/img/cardImgs/img2.png",
+      className: 'yellow'
     },
     {
       id: 3,
@@ -50,6 +52,7 @@ export default function Home() {
       description:
         "Take advantage of our Expert Advisors, Copy Trading platforms and 24/7 crypto trading. Try our unique risk management tool AvaProtectTM, or utilise the Trading Central automated analysis add-on.",
       image: "/img/cardImgs/img3.png",
+      className: 'blue'
     },
   ];
 
