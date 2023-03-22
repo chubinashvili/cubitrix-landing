@@ -8,13 +8,14 @@ const Card = ({ type, data, customStyles, cardsData, link }) => {
   let element = null;
 
   if (type === "default") {
-    console.log(data)
     element = (
       <div className={styles.cardContent} style={customStyles}>
         <h2 className={styles.cardHeader}>why complend?</h2>
         <div className={styles.cardsWrapper}>
           {data.map((item) => (
-            <div className={`${styles.card} ${styles[item.className]}`} key={item.id}>
+            <div
+              className={`${styles.card} ${styles[item.className]}`}
+              key={item.id}>
               <div className={styles.imgWrapper}>
                 <img
                   className={styles.cardImg}
@@ -133,15 +134,8 @@ const Card = ({ type, data, customStyles, cardsData, link }) => {
               </svg>
               <span>Sell & Trade</span>
             </h1>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "50px",
-                flexWrap: 'wrap',
-                justifyContent: 'center'
-              }}>
-              <h2 className={styles.platformTitle}>Crypto</h2>
+            <div className={styles.platformTitleTwo}>
+              <h2>Crypto</h2>
               <a href={link} className={styles.blueButton} target='_blank'>
                 Get Started
               </a>
