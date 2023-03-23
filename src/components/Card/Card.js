@@ -1,145 +1,56 @@
-import { useEffect } from "react";
 import SwiperWrapper from "../SwiperWrapper/SwiperWrapper";
-import { motion, useAnimation } from "framer-motion";
-
-import { useInView } from "react-intersection-observer";
 
 import styles from "./Card.module.css";
 
-const defaultVariant = {
-  visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
-  hidden: { opacity: 0, scale: 0.2 },
-};
-
-const becomeMemberVariantOne = {
-  hidden: {
-    opacity: 0,
-    x: -150,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-    },
-  },
-};
-
-const becomeMemberVariantTwo = {
-  hidden: {
-    opacity: 0,
-    x: 150,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-    },
-  },
-};
-
-const becomeMemberVariantThree = {
-  hidden: {
-    opacity: 0,
-    x: 150,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-    },
-  },
-};
-
-const cardsVariant = {
-  hidden: {
-    opacity: 0,
-    y: -100,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-    },
-  },
-};
-
 const Card = ({ type, data, customStyles, cardsData, link }) => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.3 });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-    if (!inView) {
-      controls.set("hidden");
-    }
-  }, [controls, inView]);
-
   let element = null;
 
   if (type === "default") {
     element = (
       <div className={`${styles.cardContent}`}>
-        <motion.div
-          ref={ref}
-          variants={cardsVariant}
-          animate={controls}
-          initial='hidden'
-          className={styles.cardHeader}>
+        <div className={styles.cardHeader} data-aos='fade-up' data-aos-delay="20">
           why complend?
-        </motion.div>
-        <motion.div
-          ref={ref}
-          className={styles.cardsWrapper}
-          variants={defaultVariant}
-          initial='hidden'
-          animate={controls}>
+        </div>
+        <div className={styles.cardsWrapper}>
           {data.map((item) => (
             <div
+              data-aos='fade-up'
               className={`${styles.card} ${styles[item.className]}`}
               key={item.id}>
-              <div className={styles.imgWrapper}>
+              <div className={styles.imgWrapper} data-aos='fade-up' data-aos-delay="20">
                 <img
                   className={styles.cardImg}
                   src={item.image}
                   alt={item.title}
                 />
               </div>
-              <div className={styles.cardInfo}>
+              <div className={styles.cardInfo} data-aos='fade-up' data-aos-delay="20">
                 <h2 className={styles.cardTitle}>{item.title}</h2>
                 <p className={styles.cardText}>{item.description}</p>
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     );
   }
 
   if (type === "about") {
     element = (
-      <div style={customStyles} ref={ref}>
+      <div style={customStyles}>
         <img
           className={styles.bgImg}
           src='/img/AboutProjects/Bottom.svg'
           alt='background cover'
         />
         <div className={styles.aboutContainer}>
-          <motion.div
-            className={styles.aboutWrapper}
-            variants={becomeMemberVariantThree}
-            initial='hidden'
-            animate={controls}>
+          <div className={styles.aboutWrapper}>
             <SwiperWrapper>
               {data.map((item, index) => (
                 <div className={styles.aboutContent} key={index}>
                   <div className={styles.aboutImgWrapper}>
                     <img
+                      data-aos='fade-up'
                       className={styles.aboutImg}
                       src={item.image}
                       alt={"dashboard"}
@@ -147,13 +58,17 @@ const Card = ({ type, data, customStyles, cardsData, link }) => {
                     />
                   </div>
                   <div className={styles.aboutInfo}>
-                    <h2 className={styles.aboutTitle}>{item.title}</h2>
-                    <p className={styles.aboutText}>{item.description}</p>
+                    <h2 className={styles.aboutTitle} data-aos='fade-up' data-aos-delay="20">
+                      {item.title}
+                    </h2>
+                    <p className={styles.aboutText} data-aos='fade-up' data-aos-delay="20">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
               ))}
             </SwiperWrapper>
-          </motion.div>
+          </div>
         </div>
       </div>
     );
@@ -161,34 +76,31 @@ const Card = ({ type, data, customStyles, cardsData, link }) => {
 
   if (type === "become-member") {
     element = (
-      <div
-        className={styles.becomeMemberContainer}
-        style={customStyles}
-        ref={ref}>
+      <div className={styles.becomeMemberContainer} style={customStyles}>
         <div className={styles.becomeMemberContent}>
-          <motion.div
-            variants={becomeMemberVariantOne}
-            initial='hidden'
-            animate={controls}
-            className={styles.becomeMemberInfo}>
-            <h2 className={styles.becomeMemberHeader}>Become Member</h2>
-            <p className={styles.becomeMemberText}>{data.description}</p>
-            <a href={data.link} className={styles.blueButton} target='_blank'>
+          <div className={styles.becomeMemberInfo}>
+            <h2 className={styles.becomeMemberHeader} data-aos='fade-up' data-aos-delay="20">
+              Become Member
+            </h2>
+            <p className={styles.becomeMemberText} data-aos='fade-up' data-aos-delay="20">
+              {data.description}
+            </p>
+            <a
+              href={data.link}
+              className={styles.blueButton}
+              target='_blank'
+              data-aos='fade-up'>
               Create Account
             </a>
-          </motion.div>
-          <motion.div
-            ref={ref}
-            variants={becomeMemberVariantTwo}
-            initial='hidden'
-            animate={controls}
-            className={styles.becomeMemberImgWrapper}>
+          </div>
+          <div className={styles.becomeMemberImgWrapper}>
             <img
+              data-aos='fade-up'
               className={styles.becomeMemberImg}
               src={data.image}
               alt={"become member background"}
             />
-          </motion.div>
+          </div>
         </div>
       </div>
     );
@@ -203,7 +115,7 @@ const Card = ({ type, data, customStyles, cardsData, link }) => {
             src={"/img/trendingPlatform/Top.svg"}
             alt=''
           />
-          <div className={styles.platformInfo}>
+          <div className={styles.platformInfo} data-aos="zoom-in-up" data-aos-delay="20">
             <h1 className={styles.platformTitle}>
               <span>Buy</span>
               <svg
@@ -247,7 +159,7 @@ const Card = ({ type, data, customStyles, cardsData, link }) => {
               Trade, buy, staking and loan cryptocurrency at Complend
             </p>
           </div>
-          <div className={styles.platformWrapper}>
+          <div className={styles.platformWrapper} data-aos='fade-up' data-aos-delay="300">
             {cardsData.map((item, index) => (
               <div
                 className={`${styles.platformBox}`}

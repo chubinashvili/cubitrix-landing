@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 
 // components
 import Card from "../components/Card/Card";
@@ -20,9 +21,15 @@ import {
 
 // css
 import styles from "../styles/Home.module.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Home() {
   const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   const handleSubmit = () => {
     setEmail("");
@@ -157,7 +164,7 @@ export default function Home() {
   ];
 
   return (
-    <div className={styles.main}>
+    <div className={styles.main} data-aos-easing="ease" data-aos-duration="400">
       <Navbar link={"http://localhost:3000/"} />
       <Card
         type={"trading-platform"}

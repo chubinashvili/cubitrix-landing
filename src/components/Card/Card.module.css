@@ -457,7 +457,6 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  animation: moveInLeft 1s ease-out;
   backface-visibility: hidden;
 }
 
@@ -467,7 +466,6 @@
   gap: 50px;
   flex-wrap: wrap;
   justify-content: center;
-  animation: moveInRight 1s ease-out;
   backface-visibility: hidden;
 }
 
@@ -488,7 +486,6 @@
   color: rgba(255, 255, 255, 0.6);
   line-height: 25.6px;
   font-size: 16px;
-  animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards;
 }
 
@@ -515,6 +512,9 @@
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
   border-radius: 40px;
   position: relative;
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+  transform: translateY(0px);
+  animation: float 3s ease-in-out infinite;
 }
 
 .platformBox p {
@@ -534,34 +534,33 @@
 
 .platformBox:nth-child(1) {
   top: 152px;
-  animation: 10s 1.25s ease-in-out moveItemOne;
+  animation-delay: 0.2s;
 }
 
 .platformBox:nth-child(2) {
   top: 62px;
-  animation: 10s 1.25s ease-in-out moveItemTwo;
+  animation-delay: 1s;
 }
 
 .platformBox:nth-child(3) {
   top: 187px;
-  animation: 10s 1.25s ease-in-out moveItemThree;
+  animation-delay: 0.8s;
 }
 
 .platformBox:nth-child(4) {
   top: 41px;
-  animation: 10s 1.25s ease-in-out moveItemFour;
+  animation-delay: 0.6s;
 }
 
 .platformBox:nth-child(5) {
   top: 66px;
-  animation: 10s 1.25s ease-in-out moveItemFive;
+  animation-delay: 0.4s;
 }
 
 @media (max-width: 1492px) {
   .platformBox {
     position: unset !important;
     width: 100%;
-    animation: none !important;
   }
   .platformWrapper {
     justify-content: unset;
@@ -577,177 +576,17 @@
   }
 }
 
-@keyframes moveInLeft {
+@keyframes float {
   0% {
-    opacity: 0;
-    transform: translateX(-100px);
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translateY(0px);
   }
-
-  80% {
-    transform: translateX(20px);
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translateY(-20px);
   }
-
   100% {
-    opacity: 1;
-    transform: translate(0);
-  }
-}
-
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-
-  80% {
-    transform: translateX(-20px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translate(0);
-  }
-}
-
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translate(0);
-  }
-}
-
-@keyframes moveItemOne {
-  0% {
-    transform: translateY(0);
-  }
-
-  20% {
-    transform: translateY(-90px) translateX(290px);
-  }
-
-  40% {
-    transform: translateY(38px) translateX(580px);
-  }
-
-  60% {
-    transform: translateY(-110px) translateX(870px);
-    
-  }
-
-  80% {
-    transform: translateY(-85px) translateX(1160px);
-  }
-
-  100% {
-    transform: translate(0);
-  }
-}
-
-@keyframes moveItemTwo {
-  0% {
-    transform: translateY(0);
-  }
-
-  20% {
-    transform: translateY(125px) translateX(290px);
-  }
-
-  40% {
-    transform: translateY(-23px) translateX(580px);
-  }
-
-  60% {
-    transform: translateY(10px) translateX(870px);
-  }
-
-  80% {
-    transform: translateY(86px) translateX(-290px);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes moveItemThree {
-  0% {
-    transform: translateY(0);
-  }
-
-  20% {
-    transform: translateY(-145px) translateX(290px);
-  }
-
-  40% {
-    transform: translateY(-120px) translateX(580px);
-  }
-
-  60% {
-    transform: translateY(-35px) translateX(-580px);
-  }
-
-  80% {
-    transform: translateY(-125px) translateX(-290px);
-  }
-
-  100% {
-    transform: translate(0);
-  }
-}
-
-@keyframes moveItemFour {
-  0% {
-    transform: translateY(0);
-  }
-
-  20% {
-    transform: translateY(25px) translateX(290px);
-  }
-
-  40% {
-    transform: translateY(105px) translateX(-870px);
-  }
-
-  60% {
-    transform: translateY(20px) translateX(-580px);
-  }
-
-  80% {
-    transform: translateY(145px) translateX(-290px);
-  }
-
-  100% {
-    transform: translate(0);
-  }
-}
-
-@keyframes moveItemFive {
-  0% {
-    transform: translateY(0);
-  }
-
-  20% {
-    transform: translateY(85px) translateX(-1160px);
-  }
-
-  40% {
-    transform: translateY(-5px) translateX(-870px);
-  }
-
-  60% {
-    transform: translateY(120px) translateX(-580px);
-  }
-
-  80% {
-    transform: translateY(-25px) translateX(-290px);
-  }
-
-  100% {
-    transform: translate(0);
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translateY(0px);
   }
 }
