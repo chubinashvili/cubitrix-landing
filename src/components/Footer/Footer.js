@@ -34,6 +34,7 @@ const Footer = ({ handleSubmit, email, setEmail, data }) => {
               name="email"
               placeholder="Enter email adress"
               value={email}
+              autoComplete={"off"}
               onChange={(e) => {
                 if (e.target.value.length) {
                   setError("");
