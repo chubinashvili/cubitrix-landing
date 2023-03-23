@@ -5,6 +5,9 @@
   gap: 80px;
   padding: 200px 40px;
   border-bottom: 1px solid rgb(255, 255, 255, 0.05);
+  background-image: url("/img/trendingPlatform/elipse1.png");
+  background-repeat: no-repeat;
+  background-position: right;
 }
 
 .cardHeader {
@@ -150,6 +153,9 @@
   border-bottom-left-radius: 100px;
   border-bottom-right-radius: 100px;
   background-color: #2f3674;
+  background-image: url("/img/trendingPlatform/elipse3.png");
+  background-repeat: no-repeat;
+  background-position: left;
 }
 
 .becomeMemberHeader {
@@ -415,6 +421,9 @@
   align-items: center;
   justify-content: center;
   padding: 100px 40px;
+  background-image: url("/img/trendingPlatform/elipse.png");
+  background-repeat: no-repeat;
+  background-position: left;
   gap: 77px;
 }
 
@@ -627,6 +636,7 @@
 
   60% {
     transform: translateY(-110px) translateX(870px);
+    
   }
 
   80% {
