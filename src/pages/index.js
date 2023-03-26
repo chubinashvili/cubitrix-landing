@@ -113,7 +113,7 @@ export default function Home() {
     description:
       "Creating an account is easy. To get started, simply click on the 'Create Account' button and follow the instruction. We take your privacy and security seriously, so rest assured that your information will be kept safe and confidential.",
     image: "/img/BecomeMember/complend.jpg",
-    link: "http://localhost:3000/",
+    link: "http://localhost:3000/create-account",
   };
 
   const cardsData = [
