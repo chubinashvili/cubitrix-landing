@@ -1,0 +1,165 @@
+.container {
+  position: relative;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+  padding: 100px 40px 300px 40px;
+  background-color: #2a305e;
+}
+
+.cardHeader {
+  font-size: 48px;
+  line-height: 67.2px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.cardsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 30px;
+}
+
+.card {
+  background: rgba(127, 147, 255, 0.02);
+  border-radius: 32px;
+  width: calc(33.33% - 30px);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  min-height: 520px;
+  padding: 40px 20px;
+  height: 100%;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  gap: 40px;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-20px);
+}
+
+.green {
+  border: 1px solid #45f4ea;
+  background: rgba(69, 244, 234, 0.05);
+  box-shadow: 0px 20px 60px rgba(69, 244, 234, 0.2);
+  border-radius: 32px;
+}
+
+.green:hover {
+  box-shadow: 0px 20px 60px rgb(149, 255, 193, 0.1);
+}
+
+.yellow {
+  border: 1px solid #ffdd78;
+}
+
+.yellow:hover {
+  box-shadow: 0px 20px 60px rgb(255, 221, 120, 0.1);
+}
+
+.blue {
+  border: 1px solid #64d1ff;
+}
+
+.blue:hover {
+  box-shadow: 0px 20px 60px rgb(100, 209, 255, 0.1);
+}
+
+.imgWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 170px;
+  transition-delay: 20ms;
+}
+
+.cardImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cardTitle {
+  font-size: 24px;
+  line-height: 31.2px;
+  text-align: center;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition-delay: 20ms;
+}
+
+.cardText {
+  font-size: 16px;
+  line-height: 25.6px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+}
+
+.card:hover .cardText {
+  color: #fff;
+}
+
+.bottom {
+  width: calc(100% + 4px);
+  position: absolute;
+  bottom: -1px;
+  left: -2px;
+}
+
+@media (max-width: 1500px) {
+  .cardInfo {
+    height: 200px;
+  }
+}
+
+@media (max-width: 1365px) {
+  .card {
+    min-height: 600px;
+  }
+
+  .cardInfo {
+    height: 250px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .cardContent {
+    gap: 60px;
+  }
+
+  .cardsWrapper {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+    padding: 30px;
+    height: auto;
+    min-height: 400px;
+    padding: 40px 24px;
+  }
+
+  .cardInfo {
+    height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .cardHeader {
+    font-size: 34px;
+  }
+}
