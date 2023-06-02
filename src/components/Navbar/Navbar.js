@@ -15,7 +15,7 @@ function Navbar({ link }) {
       </div>
       <div className={styles.navBarBtn}>
         <a href={link} target="_blank">
-          Lounch App
+          Connect Wallet
         </a>
       </div>
     </div>
