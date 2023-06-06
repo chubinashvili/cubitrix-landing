@@ -22,16 +22,16 @@ import {
 // css
 import "@cubitrix/cubitrix-react-ui-module/src/assets/css/main-theme.css";
 import styles from "../styles/Home.module.css";
-import AOS from "aos";
-import "aos/dist/aos.css";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 import { DashboardHeader } from "../components/DashboardHeader/DashboardHeader";
 
 export default function Home() {
   const [email, setEmail] = useState("");
 
-  useEffect(() => {
-    AOS.init();
-  }, []);
+  // useEffect(() => {
+  //   AOS.init();
+  // }, []);
 
   const handleSubmit = () => {
     setEmail("");
