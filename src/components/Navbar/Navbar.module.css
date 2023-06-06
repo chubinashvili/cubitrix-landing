@@ -1,73 +1,81 @@
 /* navbar */
 
 .navBarContent {
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    background: #2F3674;
-    width: 100vw;
-    height: 70px;
-    padding: 0 40px;
-    align-items: center;
-    z-index: 3;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  background: #2f3674;
+  width: 100vw;
+  height: 70px;
+  padding: 0 40px;
+  align-items: center;
+  z-index: 3;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .navbarWrapper {
-    display: flex;
-    align-items: center;
-    gap: 60px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
 }
 
 .navBarlogo {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .navbarList {
-    display: flex;
-    list-style-type: none;
-    align-items: center;
-    gap: 40px;
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  gap: 40px;
+  height: 100%;
 }
 
 .navbarList li {
-    color: rgba(255, 255, 255, 0.4);
-    cursor: pointer;
-    transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
 }
 
 .navbarList li.active {
-    border-bottom: 1px solid #FFFFFF;
-    color: #FFF;
-    padding: 28.5px 0;
-
+  border-bottom: 1px solid #ffffff;
+  color: #fff;
+  padding: 28.5px 0;
 }
 
 .navbarList li:hover {
-    opacity: .7;
+  opacity: 0.7;
 }
 
 .navBarBtn a {
-    padding: 12px 30px;
-    font-size: 16px;
-    line-height: 140%;
-    font-weight: 500;
-    border-radius: 32px;
-    color: #FFFFFF;
-    transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-    cursor: pointer;
-    border: none;
-    border: 1px solid #00C6FF;
+  padding: 0 30px;
+  font-size: 16px;
+  line-height: 140%;
+  font-weight: 500;
+  border-radius: 32px;
+  color: #ffffff;
+  transition: 0.6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+  cursor: pointer;
+  border: none;
+  border: 1px solid #00c6ff;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  min-height: 44px;
 }
 
 .navBarBtn a:hover {
-    opacity: .7;
+  opacity: 0.7;
 }
 
 @media (max-width: 500px) {
-    .navBarlogo span {
-        display: none;
-    }
+  .navBarContent {
+    padding: 0 20px;
+    gap: 20px;
+  }
+  .navBarlogo h3 {
+    display: none;
+  }
 }
