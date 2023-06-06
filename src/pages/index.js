@@ -20,6 +20,7 @@ import {
 } from "../svg";
 
 // css
+import "@cubitrix/cubitrix-react-ui-module/src/assets/css/main-theme.css";
 import styles from "../styles/Home.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
