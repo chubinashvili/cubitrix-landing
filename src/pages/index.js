@@ -189,7 +189,7 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.main} data-aos-easing="ease" data-aos-duration="400">
+    <div className={styles.main}>
       <Navbar link={"https://complend.shopgeorgia.ge/"} />
       <Landing
         handleGetStarted={() => console.log("get started")}
