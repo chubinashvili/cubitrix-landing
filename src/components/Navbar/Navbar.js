@@ -10,7 +10,7 @@ function Navbar({ link }) {
           <div>
             <Logo />
           </div>
-          <span>COMPLEND</span>
+          <h3>COMPLEND</h3>
         </div>
       </div>
       <div className={styles.navBarBtn}>
