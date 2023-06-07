@@ -26,6 +26,11 @@ import { DashboardHeader } from '../components/DashboardHeader/DashboardHeader'
 
 export default function Home() {
   const [email, setEmail] = useState('')
+  const [animate, setAnimate] = useState(false)
+
+  useEffect(() => {
+    setAnimate(true)
+  }, [])
 
   const handleSubmit = () => {
     setEmail('')
@@ -184,8 +189,9 @@ export default function Home() {
 
   return (
     <div className={styles.main}>
-      <Navbar link={"https://complend.shopgeorgia.ge/"} />
+      <Navbar link={'https://complend.shopgeorgia.ge/'} />
       <Landing
+        animate={animate}
         handleGetStarted={() => console.log('get started')}
         handleConnect={() => console.log('hi')}
         startTrade={() => console.log('start trade')}
