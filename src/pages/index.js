@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
 
 // components
 import Card from '../components/Card/Card'
@@ -28,7 +28,7 @@ export default function Home() {
   const [email, setEmail] = useState('')
   const [animate, setAnimate] = useState(false)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setAnimate(true)
   }, [])
 
